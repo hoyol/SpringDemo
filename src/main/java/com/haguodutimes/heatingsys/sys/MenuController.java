@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Map;
 
 @Controller
-@RequestMapping(value = {"/jsp/menu"})
+@RequestMapping(value = {"/jsp/sys/menu"})
 public class MenuController {
     @RequestMapping(value = {"/list"})
     public String dataList(Map<String, Object> map) {

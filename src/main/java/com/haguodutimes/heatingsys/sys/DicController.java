@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Map;
 
 @Controller
-@RequestMapping(value = {"/jsp/dictionary"})
+@RequestMapping(value = {"/jsp/sys/dictionary"})
 public class DicController {
     @RequestMapping(value = {"/jsp/dictionary/list"})
     public String dataList(Map<String, Object> map) {

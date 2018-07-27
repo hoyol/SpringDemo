@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Map;
 
 @Controller
-@RequestMapping(value = {"/globalconfig"})
+@RequestMapping(value = {"jsp/sys/globalconfig"})
 public class GlobalConfigController {
     @RequestMapping(value = {"/list"})
     public String dataList(Map<String, Object> map) {
