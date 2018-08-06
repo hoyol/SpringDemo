@@ -79,6 +79,13 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
+        <!-- add alibaba datasource pool-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+
     </dependencies>
 
     <build>
