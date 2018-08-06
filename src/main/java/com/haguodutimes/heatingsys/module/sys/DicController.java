@@ -1,4 +1,4 @@
-package com.haguodutimes.heatingsys.user;
+package com.haguodutimes.heatingsys.module.sys;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,15 +6,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Map;
 
 @Controller
-@RequestMapping(value = {"/jsp/dictionary"})
-public class AdminController {
-    @RequestMapping(value = {"/list"})
+@RequestMapping(value = {"/jsp/sys/dictionary"})
+public class DicController {
+    @RequestMapping(value = {"/jsp/dictionary/list"})
     public String dataList(Map<String, Object> map) {
         //todo 数据列表
         return "list";
     }
 
-    @RequestMapping(value = {"/add"})
+    @RequestMapping(value = {"/dictionary/add"})
     public String addData(Map<String, Object> map) {
         //todo 到增加页面
         return "add";
@@ -23,7 +23,7 @@ public class AdminController {
     @RequestMapping(value = {"/added"})
     public String saveAdd(Map<String, Object> map) {
         //todo 保存增加
-        return "saveadd";
+        return "added";
     }
 
     @RequestMapping(value = {"/delete"})
@@ -36,20 +36,10 @@ public class AdminController {
         //todo 数据列表修改
         return "edit";
     }
-    @RequestMapping(value = {"/number"})
-    public String countData(Map<String, Object> map) {
-        //todo 数据编号
-        return "number";
-    }
-    @RequestMapping(value = {"/name"})
-    public String nameData(Map<String, Object> map) {
-        //todo 数据命名
-        return "name";
-    }
-    @RequestMapping(value = {"/note"})
-    public String leaveNote(Map<String, Object> map) {
-        //todo 数据注释
-        return "note";
+    @RequestMapping(value = {"/save"})
+    public String saveEdition(Map<String, Object> map) {
+        //todo 数据列表保存
+        return "save";
     }
 }
 

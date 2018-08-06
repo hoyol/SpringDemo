@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haguodutimes.heatingsys.mapper.GlobalConfigMapper">
+  <resultMap id="BaseResultMap" type="com.haguodutimes.heatingsys.entity.GlobalConfig">
+    <result column="CONF_KEY" jdbcType="VARCHAR" property="confKey" />
+    <result column="CONF_NAME" jdbcType="VARCHAR" property="confName" />
+    <result column="CONF_VALUE" jdbcType="VARCHAR" property="confValue" />
+    <result column="NOTE" jdbcType="VARCHAR" property="note" />
+    <result column="GRP_CODE" jdbcType="VARCHAR" property="grpCode" />
+    <result column="ORDER_NUM" jdbcType="INTEGER" property="orderNum" />
+  </resultMap>
+    <sql id="Base_Column_List">
+        CONF_KEY, CONF_NAME, CONF_VALUE, NOTE, GRP_CODE, ORDER_NUM
+    </sql>
+  <insert id="insert" parameterType="com.haguodutimes.heatingsys.entity.GlobalConfig">
+    insert into global_config (CONF_KEY, CONF_NAME, CONF_VALUE, 
+      NOTE, GRP_CODE, ORDER_NUM
+      )
+    values (#{confKey,jdbcType=VARCHAR}, #{confName,jdbcType=VARCHAR}, #{confValue,jdbcType=VARCHAR}, 
+      #{note,jdbcType=VARCHAR}, #{grpCode,jdbcType=VARCHAR}, #{orderNum,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.haguodutimes.heatingsys.entity.GlobalConfig">
+    insert into global_config
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="confKey != null">
+        CONF_KEY,
+      </if>
+      <if test="confName != null">
+        CONF_NAME,
+      </if>
+      <if test="confValue != null">
+        CONF_VALUE,
+      </if>
+      <if test="note != null">
+        NOTE,
+      </if>
+      <if test="grpCode != null">
+        GRP_CODE,
+      </if>
+      <if test="orderNum != null">
+        ORDER_NUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="confKey != null">
+        #{confKey,jdbcType=VARCHAR},
+      </if>
+      <if test="confName != null">
+        #{confName,jdbcType=VARCHAR},
+      </if>
+      <if test="confValue != null">
+        #{confValue,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="grpCode != null">
+        #{grpCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNum != null">
+        #{orderNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from global_config
+        where conf_key = #{conf_key,jdbcType=VARCHAR}
+    </select>
+</mapper>

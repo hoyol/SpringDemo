@@ -1,4 +1,4 @@
-package com.haguodutimes.heatingsys.report;
+package com.haguodutimes.heatingsys.module.report;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,4 +1,4 @@
-package com.haguodutimes.heatingsys.sys;
+package com.haguodutimes.heatingsys.module.sys;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
