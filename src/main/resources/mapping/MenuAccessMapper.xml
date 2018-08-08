@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haguodutimes.heatingsys.mapper.MenuAccessMapper">
+  <resultMap id="BaseResultMap" type="com.haguodutimes.heatingsys.entity.MenuAccess">
+    <result column="ACCESS_ID" jdbcType="INTEGER" property="accessId" />
+    <result column="ACCESS_NAME" jdbcType="VARCHAR" property="accessName" />
+    <result column="TYPE_CODE" jdbcType="VARCHAR" property="typeCode" />
+    <result column="KEY_CODE" jdbcType="VARCHAR" property="keyCode" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="NOTE" jdbcType="VARCHAR" property="note" />
+  </resultMap>
+  <insert id="insert" parameterType="com.haguodutimes.heatingsys.entity.MenuAccess">
+    insert into mng_menu_access (ACCESS_ID, ACCESS_NAME, TYPE_CODE, 
+      KEY_CODE, STATUS, NOTE
+      )
+    values (#{accessId,jdbcType=INTEGER}, #{accessName,jdbcType=VARCHAR}, #{typeCode,jdbcType=VARCHAR}, 
+      #{keyCode,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.haguodutimes.heatingsys.entity.MenuAccess">
+    insert into mng_menu_access
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="accessId != null">
+        ACCESS_ID,
+      </if>
+      <if test="accessName != null">
+        ACCESS_NAME,
+      </if>
+      <if test="typeCode != null">
+        TYPE_CODE,
+      </if>
+      <if test="keyCode != null">
+        KEY_CODE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="note != null">
+        NOTE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="accessId != null">
+        #{accessId,jdbcType=INTEGER},
+      </if>
+      <if test="accessName != null">
+        #{accessName,jdbcType=VARCHAR},
+      </if>
+      <if test="typeCode != null">
+        #{typeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="keyCode != null">
+        #{keyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

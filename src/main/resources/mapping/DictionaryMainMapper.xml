@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haguodutimes.heatingsys.mapper.DictionaryMainMapper">
+  <resultMap id="BaseResultMap" type="com.haguodutimes.heatingsys.entity.DictionaryMain">
+    <result column="DIC_ID" jdbcType="INTEGER" property="dicId" />
+    <result column="DIC_NAME" jdbcType="VARCHAR" property="dicName" />
+    <result column="KEY_CODE" jdbcType="VARCHAR" property="keyCode" />
+    <result column="NOTE" jdbcType="VARCHAR" property="note" />
+  </resultMap>
+  <insert id="insert" parameterType="com.haguodutimes.heatingsys.entity.DictionaryMain">
+    insert into mng_dic_main (DIC_ID, DIC_NAME, KEY_CODE, 
+      NOTE)
+    values (#{dicId,jdbcType=INTEGER}, #{dicName,jdbcType=VARCHAR}, #{keyCode,jdbcType=VARCHAR}, 
+      #{note,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.haguodutimes.heatingsys.entity.DictionaryMain">
+    insert into mng_dic_main
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dicId != null">
+        DIC_ID,
+      </if>
+      <if test="dicName != null">
+        DIC_NAME,
+      </if>
+      <if test="keyCode != null">
+        KEY_CODE,
+      </if>
+      <if test="note != null">
+        NOTE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dicId != null">
+        #{dicId,jdbcType=INTEGER},
+      </if>
+      <if test="dicName != null">
+        #{dicName,jdbcType=VARCHAR},
+      </if>
+      <if test="keyCode != null">
+        #{keyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

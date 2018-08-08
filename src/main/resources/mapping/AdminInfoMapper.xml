@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haguodutimes.heatingsys.mapper.AdminInfoMapper">
+  <resultMap id="BaseResultMap" type="com.haguodutimes.heatingsys.entity.AdminInfo">
+    <result column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+    <result column="LOGIN_NAME" jdbcType="VARCHAR" property="loginName" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="WORK_ID" jdbcType="INTEGER" property="workId" />
+    <result column="ORG_NO" jdbcType="INTEGER" property="orgNo" />
+    <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+    <result column="AREA_CODE" jdbcType="VARCHAR" property="areaCode" />
+    <result column="USER_TYPE" jdbcType="VARCHAR" property="userType" />
+    <result column="GENDER" jdbcType="VARCHAR" property="gender" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="INFO" jdbcType="VARCHAR" property="info" />
+    <result column="TEL" jdbcType="VARCHAR" property="tel" />
+    <result column="MOBILE" jdbcType="VARCHAR" property="mobile" />
+    <result column="FIRST_LOGIN_DATE" jdbcType="TIMESTAMP" property="firstLoginDate" />
+    <result column="REGISTER_DATE" jdbcType="TIMESTAMP" property="registerDate" />
+    <result column="LOGIN_COUNT" jdbcType="VARCHAR" property="loginCount" />
+    <result column="LAST_LOGIN_DATE" jdbcType="TIMESTAMP" property="lastLoginDate" />
+    <result column="ONLINE_FLAG" jdbcType="VARCHAR" property="onlineFlag" />
+    <result column="LAST_LOGIN_IP" jdbcType="VARCHAR" property="lastLoginIp" />
+    <result column="IS_LOCKED" jdbcType="VARCHAR" property="isLocked" />
+    <result column="SORT_NUM" jdbcType="INTEGER" property="sortNum" />
+  </resultMap>
+  <insert id="insert" parameterType="com.haguodutimes.heatingsys.entity.AdminInfo">
+    insert into mng_admin_info (USER_ID, USER_NAME, LOGIN_NAME, 
+      PASSWORD, WORK_ID, ORG_NO, 
+      EMAIL, AREA_CODE, USER_TYPE, 
+      GENDER, STATUS, INFO, 
+      TEL, MOBILE, FIRST_LOGIN_DATE, 
+      REGISTER_DATE, LOGIN_COUNT, LAST_LOGIN_DATE, 
+      ONLINE_FLAG, LAST_LOGIN_IP, IS_LOCKED, 
+      SORT_NUM)
+    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{loginName,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{workId,jdbcType=INTEGER}, #{orgNo,jdbcType=INTEGER}, 
+      #{email,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, #{userType,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{firstLoginDate,jdbcType=TIMESTAMP}, 
+      #{registerDate,jdbcType=TIMESTAMP}, #{loginCount,jdbcType=VARCHAR}, #{lastLoginDate,jdbcType=TIMESTAMP}, 
+      #{onlineFlag,jdbcType=VARCHAR}, #{lastLoginIp,jdbcType=VARCHAR}, #{isLocked,jdbcType=VARCHAR}, 
+      #{sortNum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.haguodutimes.heatingsys.entity.AdminInfo">
+    insert into mng_admin_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="userName != null">
+        USER_NAME,
+      </if>
+      <if test="loginName != null">
+        LOGIN_NAME,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="workId != null">
+        WORK_ID,
+      </if>
+      <if test="orgNo != null">
+        ORG_NO,
+      </if>
+      <if test="email != null">
+        EMAIL,
+      </if>
+      <if test="areaCode != null">
+        AREA_CODE,
+      </if>
+      <if test="userType != null">
+        USER_TYPE,
+      </if>
+      <if test="gender != null">
+        GENDER,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="info != null">
+        INFO,
+      </if>
+      <if test="tel != null">
+        TEL,
+      </if>
+      <if test="mobile != null">
+        MOBILE,
+      </if>
+      <if test="firstLoginDate != null">
+        FIRST_LOGIN_DATE,
+      </if>
+      <if test="registerDate != null">
+        REGISTER_DATE,
+      </if>
+      <if test="loginCount != null">
+        LOGIN_COUNT,
+      </if>
+      <if test="lastLoginDate != null">
+        LAST_LOGIN_DATE,
+      </if>
+      <if test="onlineFlag != null">
+        ONLINE_FLAG,
+      </if>
+      <if test="lastLoginIp != null">
+        LAST_LOGIN_IP,
+      </if>
+      <if test="isLocked != null">
+        IS_LOCKED,
+      </if>
+      <if test="sortNum != null">
+        SORT_NUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginName != null">
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="workId != null">
+        #{workId,jdbcType=INTEGER},
+      </if>
+      <if test="orgNo != null">
+        #{orgNo,jdbcType=INTEGER},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null">
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userType != null">
+        #{userType,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="info != null">
+        #{info,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="firstLoginDate != null">
+        #{firstLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="registerDate != null">
+        #{registerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginCount != null">
+        #{loginCount,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginDate != null">
+        #{lastLoginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="onlineFlag != null">
+        #{onlineFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="lastLoginIp != null">
+        #{lastLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="isLocked != null">
+        #{isLocked,jdbcType=VARCHAR},
+      </if>
+      <if test="sortNum != null">
+        #{sortNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haguodutimes.heatingsys.mapper.MenuInfoMapper">
+  <resultMap id="BaseResultMap" type="com.haguodutimes.heatingsys.entity.MenuInfo">
+    <result column="MENU_ID" jdbcType="INTEGER" property="menuId" />
+    <result column="MENU_NAME" jdbcType="VARCHAR" property="menuName" />
+    <result column="MENU_URL" jdbcType="VARCHAR" property="menuUrl" />
+    <result column="MENU_STATUS" jdbcType="VARCHAR" property="menuStatus" />
+    <result column="TOP_MENU_ID" jdbcType="INTEGER" property="topMenuId" />
+    <result column="ACCESS_ID" jdbcType="INTEGER" property="accessId" />
+    <result column="MENU_GROUP_ID" jdbcType="INTEGER" property="menuGroupId" />
+    <result column="MENU_TYPE" jdbcType="VARCHAR" property="menuType" />
+    <result column="SORT_NUM" jdbcType="INTEGER" property="sortNum" />
+    <result column="ICON_NAME" jdbcType="VARCHAR" property="iconName" />
+  </resultMap>
+  <insert id="insert" parameterType="com.haguodutimes.heatingsys.entity.MenuInfo">
+    insert into mng_menu_info (MENU_ID, MENU_NAME, MENU_URL, 
+      MENU_STATUS, TOP_MENU_ID, ACCESS_ID, 
+      MENU_GROUP_ID, MENU_TYPE, SORT_NUM, 
+      ICON_NAME)
+    values (#{menuId,jdbcType=INTEGER}, #{menuName,jdbcType=VARCHAR}, #{menuUrl,jdbcType=VARCHAR}, 
+      #{menuStatus,jdbcType=VARCHAR}, #{topMenuId,jdbcType=INTEGER}, #{accessId,jdbcType=INTEGER}, 
+      #{menuGroupId,jdbcType=INTEGER}, #{menuType,jdbcType=VARCHAR}, #{sortNum,jdbcType=INTEGER}, 
+      #{iconName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.haguodutimes.heatingsys.entity.MenuInfo">
+    insert into mng_menu_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="menuId != null">
+        MENU_ID,
+      </if>
+      <if test="menuName != null">
+        MENU_NAME,
+      </if>
+      <if test="menuUrl != null">
+        MENU_URL,
+      </if>
+      <if test="menuStatus != null">
+        MENU_STATUS,
+      </if>
+      <if test="topMenuId != null">
+        TOP_MENU_ID,
+      </if>
+      <if test="accessId != null">
+        ACCESS_ID,
+      </if>
+      <if test="menuGroupId != null">
+        MENU_GROUP_ID,
+      </if>
+      <if test="menuType != null">
+        MENU_TYPE,
+      </if>
+      <if test="sortNum != null">
+        SORT_NUM,
+      </if>
+      <if test="iconName != null">
+        ICON_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="menuId != null">
+        #{menuId,jdbcType=INTEGER},
+      </if>
+      <if test="menuName != null">
+        #{menuName,jdbcType=VARCHAR},
+      </if>
+      <if test="menuUrl != null">
+        #{menuUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="menuStatus != null">
+        #{menuStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="topMenuId != null">
+        #{topMenuId,jdbcType=INTEGER},
+      </if>
+      <if test="accessId != null">
+        #{accessId,jdbcType=INTEGER},
+      </if>
+      <if test="menuGroupId != null">
+        #{menuGroupId,jdbcType=INTEGER},
+      </if>
+      <if test="menuType != null">
+        #{menuType,jdbcType=VARCHAR},
+      </if>
+      <if test="sortNum != null">
+        #{sortNum,jdbcType=INTEGER},
+      </if>
+      <if test="iconName != null">
+        #{iconName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

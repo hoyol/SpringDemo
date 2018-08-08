@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haguodutimes.heatingsys.mapper.ClientInfoMapper">
+  <resultMap id="BaseResultMap" type="com.haguodutimes.heatingsys.entity.ClientInfo">
+    <result column="CLIENT_ID" jdbcType="INTEGER" property="clientId" />
+    <result column="CLIENT_NO" jdbcType="INTEGER" property="clientNo" />
+    <result column="CLIENT_NAME" jdbcType="VARCHAR" property="clientName" />
+    <result column="CLIENT_ADDR" jdbcType="VARCHAR" property="clientAddr" />
+    <result column="FLOOR_AREA" jdbcType="VARCHAR" property="floorArea" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+  </resultMap>
+  <insert id="insert" parameterType="com.haguodutimes.heatingsys.entity.ClientInfo">
+    insert into mng_client_info (CLIENT_ID, CLIENT_NO, CLIENT_NAME, 
+      CLIENT_ADDR, FLOOR_AREA, PHONE
+      )
+    values (#{clientId,jdbcType=INTEGER}, #{clientNo,jdbcType=INTEGER}, #{clientName,jdbcType=VARCHAR}, 
+      #{clientAddr,jdbcType=VARCHAR}, #{floorArea,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.haguodutimes.heatingsys.entity.ClientInfo">
+    insert into mng_client_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="clientId != null">
+        CLIENT_ID,
+      </if>
+      <if test="clientNo != null">
+        CLIENT_NO,
+      </if>
+      <if test="clientName != null">
+        CLIENT_NAME,
+      </if>
+      <if test="clientAddr != null">
+        CLIENT_ADDR,
+      </if>
+      <if test="floorArea != null">
+        FLOOR_AREA,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="clientId != null">
+        #{clientId,jdbcType=INTEGER},
+      </if>
+      <if test="clientNo != null">
+        #{clientNo,jdbcType=INTEGER},
+      </if>
+      <if test="clientName != null">
+        #{clientName,jdbcType=VARCHAR},
+      </if>
+      <if test="clientAddr != null">
+        #{clientAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="floorArea != null">
+        #{floorArea,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

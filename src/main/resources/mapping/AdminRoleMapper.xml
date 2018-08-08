@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haguodutimes.heatingsys.mapper.AdminRoleMapper">
+  <resultMap id="BaseResultMap" type="com.haguodutimes.heatingsys.entity.AdminRole">
+    <result column="ROLE_ID" jdbcType="INTEGER" property="roleId" />
+    <result column="ADMIN_ID" jdbcType="INTEGER" property="adminId" />
+  </resultMap>
+  <insert id="insert" parameterType="com.haguodutimes.heatingsys.entity.AdminRole">
+    insert into mng_admin_role (ROLE_ID, ADMIN_ID)
+    values (#{roleId,jdbcType=INTEGER}, #{adminId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.haguodutimes.heatingsys.entity.AdminRole">
+    insert into mng_admin_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        ROLE_ID,
+      </if>
+      <if test="adminId != null">
+        ADMIN_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="roleId != null">
+        #{roleId,jdbcType=INTEGER},
+      </if>
+      <if test="adminId != null">
+        #{adminId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haguodutimes.heatingsys.mapper.DictionarySubMapper">
+  <resultMap id="BaseResultMap" type="com.haguodutimes.heatingsys.entity.DictionarySub">
+    <id column="SUB_ID" jdbcType="BIGINT" property="subId" />
+    <id column="DICT_ID" jdbcType="BIGINT" property="dictId" />
+    <result column="CODE" jdbcType="VARCHAR" property="code" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="NOTE" jdbcType="VARCHAR" property="note" />
+    <result column="SORT_NUM" jdbcType="SMALLINT" property="sortNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    SUB_ID, DICT_ID, CODE, NAME, NOTE, SORT_NUM
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.haguodutimes.heatingsys.entity.DictionarySubKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mng_dic_sub
+    where SUB_ID = #{subId,jdbcType=BIGINT}
+      and DICT_ID = #{dictId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.haguodutimes.heatingsys.entity.DictionarySubKey">
+    delete from mng_dic_sub
+    where SUB_ID = #{subId,jdbcType=BIGINT}
+      and DICT_ID = #{dictId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.haguodutimes.heatingsys.entity.DictionarySub">
+    insert into mng_dic_sub (SUB_ID, DICT_ID, CODE, 
+      NAME, NOTE, SORT_NUM
+      )
+    values (#{subId,jdbcType=BIGINT}, #{dictId,jdbcType=BIGINT}, #{code,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, #{sortNum,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.haguodutimes.heatingsys.entity.DictionarySub">
+    insert into mng_dic_sub
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="subId != null">
+        SUB_ID,
+      </if>
+      <if test="dictId != null">
+        DICT_ID,
+      </if>
+      <if test="code != null">
+        CODE,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="note != null">
+        NOTE,
+      </if>
+      <if test="sortNum != null">
+        SORT_NUM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="subId != null">
+        #{subId,jdbcType=BIGINT},
+      </if>
+      <if test="dictId != null">
+        #{dictId,jdbcType=BIGINT},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="sortNum != null">
+        #{sortNum,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haguodutimes.heatingsys.entity.DictionarySub">
+    update mng_dic_sub
+    <set>
+      <if test="code != null">
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        NOTE = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="sortNum != null">
+        SORT_NUM = #{sortNum,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where SUB_ID = #{subId,jdbcType=BIGINT}
+      and DICT_ID = #{dictId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haguodutimes.heatingsys.entity.DictionarySub">
+    update mng_dic_sub
+    set CODE = #{code,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      NOTE = #{note,jdbcType=VARCHAR},
+      SORT_NUM = #{sortNum,jdbcType=SMALLINT}
+    where SUB_ID = #{subId,jdbcType=BIGINT}
+      and DICT_ID = #{dictId,jdbcType=BIGINT}
+  </update>
+</mapper>
