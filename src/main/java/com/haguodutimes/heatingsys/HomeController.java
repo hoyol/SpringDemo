@@ -5,6 +5,8 @@ import com.haguodutimes.heatingsys.service.GlobalConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,13 +19,21 @@ public class HomeController {
     private GlobalConfigService globalConfigService;
 
     @RequestMapping(value = {"/"})
-    public String index(Map<String, Object> model){
+    public String login(Map<String, Object> model){
 
 
-        return "index";
+        return "login";
     }
 
 
+    @ResponseBody
+    @RequestMapping(value = ("/dologin"))
+    public String dologin(@RequestParam String username,@RequestParam String thepwd){
+        System.out.println(username);
+        System.out.println(thepwd);
+
+        return "ok";
+    }
 
 //    @RequestMapping(value = {"/", "/view"})
 //    public String view(Map<String, Object> map) {
