@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haguodutimes.heatingsys.mapper.TransactionCopyMapper">
+  <resultMap id="BaseResultMap" type="com.haguodutimes.heatingsys.entity.TransactionCopy">
+    <result column="CLIENT_ID" jdbcType="INTEGER" property="clientId" />
+    <result column="CLIENT_NO" jdbcType="INTEGER" property="clientNo" />
+    <result column="CLIENT_NAME" jdbcType="VARCHAR" property="clientName" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="FLOOR_AREA" jdbcType="VARCHAR" property="floorArea" />
+    <result column="BALANCE" jdbcType="VARCHAR" property="balance" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="APT_NO" jdbcType="INTEGER" property="aptNo" />
+    <result column="APT_UNIT" jdbcType="VARCHAR" property="aptUnit" />
+    <result column="APT_FLOOR" jdbcType="VARCHAR" property="aptFloor" />
+    <result column="ORG_NO" jdbcType="INTEGER" property="orgNo" />
+  </resultMap>
+  <insert id="insert" parameterType="com.haguodutimes.heatingsys.entity.TransactionCopy">
+    insert into mng_transaction_copy1 (CLIENT_ID, CLIENT_NO, CLIENT_NAME, 
+      ADDRESS, FLOOR_AREA, BALANCE, 
+      PHONE, CREATE_DATE, STATUS, 
+      APT_NO, APT_UNIT, APT_FLOOR, 
+      ORG_NO)
+    values (#{clientId,jdbcType=INTEGER}, #{clientNo,jdbcType=INTEGER}, #{clientName,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{floorArea,jdbcType=VARCHAR}, #{balance,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, 
+      #{aptNo,jdbcType=INTEGER}, #{aptUnit,jdbcType=VARCHAR}, #{aptFloor,jdbcType=VARCHAR}, 
+      #{orgNo,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.haguodutimes.heatingsys.entity.TransactionCopy">
+    insert into mng_transaction_copy1
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="clientId != null">
+        CLIENT_ID,
+      </if>
+      <if test="clientNo != null">
+        CLIENT_NO,
+      </if>
+      <if test="clientName != null">
+        CLIENT_NAME,
+      </if>
+      <if test="address != null">
+        ADDRESS,
+      </if>
+      <if test="floorArea != null">
+        FLOOR_AREA,
+      </if>
+      <if test="balance != null">
+        BALANCE,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="aptNo != null">
+        APT_NO,
+      </if>
+      <if test="aptUnit != null">
+        APT_UNIT,
+      </if>
+      <if test="aptFloor != null">
+        APT_FLOOR,
+      </if>
+      <if test="orgNo != null">
+        ORG_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="clientId != null">
+        #{clientId,jdbcType=INTEGER},
+      </if>
+      <if test="clientNo != null">
+        #{clientNo,jdbcType=INTEGER},
+      </if>
+      <if test="clientName != null">
+        #{clientName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="floorArea != null">
+        #{floorArea,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="aptNo != null">
+        #{aptNo,jdbcType=INTEGER},
+      </if>
+      <if test="aptUnit != null">
+        #{aptUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="aptFloor != null">
+        #{aptFloor,jdbcType=VARCHAR},
+      </if>
+      <if test="orgNo != null">
+        #{orgNo,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
