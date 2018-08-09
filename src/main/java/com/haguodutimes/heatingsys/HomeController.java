@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
+import com.haguodutimes.heatingsys.utils.WindMD5;
 
 @Controller
 public class HomeController {
@@ -35,6 +36,7 @@ public class HomeController {
     @RequestMapping(value = ("/dologin"))
     public String dologin(@RequestParam String username,@RequestParam String pwd){
         System.out.println(username);
+<<<<<<< HEAD
         System.out.println(pwd);
         AdminInfo adminInfo = adminInfoService.getLoginNameByKey(username);
         if(null==adminInfo){
@@ -48,6 +50,12 @@ public class HomeController {
             }
             System.out.println(adminInfo.getLoginName()+"pwd is :"+adminInfo.getPassword());
         }
+=======
+        System.out.println(thepwd);
+        WindMD5 md5 = new WindMD5();
+        System.out.println("密码MD5值为："+md5.getMD5ofStr(thepwd));
+
+>>>>>>> master
         return "ok";
     }
 
