@@ -25,6 +25,9 @@
     <result column="IS_LOCKED" jdbcType="VARCHAR" property="isLocked" />
     <result column="SORT_NUM" jdbcType="INTEGER" property="sortNum" />
   </resultMap>
+  <sql id="Base_Column_List">
+    user_id, user_name, login_name, password, work_id
+  </sql>
   <insert id="insert" parameterType="com.haguodutimes.heatingsys.entity.AdminInfo">
     insert into mng_admin_info (USER_ID, USER_NAME, LOGIN_NAME, 
       PASSWORD, WORK_ID, ORG_NO, 
@@ -182,4 +185,11 @@
       </if>
     </trim>
   </insert>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from mng_admin_info
+    where login_name = #{login_name,jdbcType=VARCHAR}
+  </select>
 </mapper>
