@@ -23,7 +23,6 @@
     <script>if(window.top !== window.self){ window.top.location = window.location;}
     function dologin(){
         //获取表单value提交后台进行登陆验证，如果验证成功则跳转到首页，如果登陆验证失败则提示失败原因
-        alert(123);
         var uname = $("#username").val();
         var thepwd = $("#thepwd").val();
         alert(uname+"--"+thepwd);
@@ -31,7 +30,6 @@
         var htmlobj=$.ajax({url:"/dologin?username="+uname+"&thepwd="+thepwd,async:false});
         alert(htmlobj.responseText);
 
-        alert(321);
     }
     </script>
 </head>
