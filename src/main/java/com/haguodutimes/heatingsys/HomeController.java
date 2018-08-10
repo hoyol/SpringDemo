@@ -31,6 +31,10 @@ public class HomeController {
         return "login";
     }
 
+    @RequestMapping(value = {"/home"})
+    public String tohome(){
+        return "home";
+    }
 
     @ResponseBody
     @RequestMapping(value = ("/dologin"))
@@ -51,12 +55,13 @@ public class HomeController {
         }else{
             System.out.println("Wrong pwd is: "+ thepwd + " Correct pwd is :"+adminInfo.getPassword());
             System.out.println("密码错误，请重试");
+            return "登陆验证失败";
         }
-        System.out.println("------------This is MD5-------------");
+        //System.out.println("------------This is MD5-------------");
 //        System.out.println(thepwd);
 //        WindMD5 md5 = new WindMD5();
-        System.out.println("密码MD5值为："+md5.getMD5ofStr(thepwd));
-        return "ok";
+        //System.out.println("密码MD5值为："+md5.getMD5ofStr(thepwd));
+
     }
 
 

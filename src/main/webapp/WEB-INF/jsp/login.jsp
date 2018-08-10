@@ -17,6 +17,10 @@
 
     <link href="../../bootstrap/css/animate.css" rel="stylesheet">
     <link href="../../bootstrap/css/style.css?v=4.1.0" rel="stylesheet">
+
+    <!-- 全局js -->
+    <script src="../../bootstrap/js/jquery.min.js?v=2.1.4"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js?v=3.3.6"></script>
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
@@ -31,9 +35,21 @@
         //alert(htmlobj.responseText);
         //如果密码正确，跳转
         if(htmlobj.responseText=="index"){
-            window.location.assign("index.jsp");
+            window.location.assign("/home");
+        }else{
+            alert(htmlobj.responseText);
         }
     }
+    //按回车绑定事件
+    $('document').ready(function() {
+        $('#thepwd').keyup(function (event) {
+            //alert(31231);
+            if (event.keyCode == 13) {
+                $('#login_btn').click();
+            }
+        });
+    })
+
     </script>
 
 </head>
@@ -64,9 +80,6 @@
         </div>
     </div>
 
-    <!-- 全局js -->
-    <script src="../../bootstrap/js/jquery.min.js?v=2.1.4"></script>
-    <script src="../../bootstrap/js/bootstrap.min.js?v=3.3.6"></script>
 
 </body>
 
