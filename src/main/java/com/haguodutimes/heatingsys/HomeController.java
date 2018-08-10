@@ -34,28 +34,27 @@ public class HomeController {
 
     @ResponseBody
     @RequestMapping(value = ("/dologin"))
-    public String dologin(@RequestParam String username,@RequestParam String pwd){
+    public String dologin(@RequestParam String username,@RequestParam String thepwd){
         System.out.println(username);
-<<<<<<< HEAD
-        System.out.println(pwd);
+        System.out.println(thepwd);
+        WindMD5 md5 = new WindMD5();
+        String md5pwd = md5.getMD5ofStr(thepwd);
+        //System.out.println("密码MD5值为："+md5.getMD5ofStr(thepwd));
         AdminInfo adminInfo = adminInfoService.getLoginNameByKey(username);
         if(null==adminInfo){
             return "用户不存在！";
-        }else if(username == adminInfo.getLoginName()){
-            if(pwd == adminInfo.getPassword()){
-
-            }
-            else{
-                System.out.println();
-            }
-            System.out.println(adminInfo.getLoginName()+"pwd is :"+adminInfo.getPassword());
+        }else if(md5pwd.equals(adminInfo.getPassword())) {
+            System.out.println("密码正确");
+            System.out.println(adminInfo.getLoginName() + "pwd is :" + adminInfo.getPassword());
+            return "index";
+        }else{
+            System.out.println("Wrong pwd is: "+ thepwd + " Correct pwd is :"+adminInfo.getPassword());
+            System.out.println("密码错误，请重试");
         }
-=======
-        System.out.println(thepwd);
-        WindMD5 md5 = new WindMD5();
+        System.out.println("------------This is MD5-------------");
+//        System.out.println(thepwd);
+//        WindMD5 md5 = new WindMD5();
         System.out.println("密码MD5值为："+md5.getMD5ofStr(thepwd));
-
->>>>>>> master
         return "ok";
     }
 
