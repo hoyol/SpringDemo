@@ -34,9 +34,23 @@ public class HomeController {
 
     @ResponseBody
     @RequestMapping(value = ("/dologin"))
-    public String dologin(@RequestParam String username,@RequestParam String thepwd){
+    public String dologin(@RequestParam String username,@RequestParam String pwd){
         System.out.println(username);
-        System.out.println(thepwd);
+        System.out.println(pwd);
+        AdminInfo adminInfo = adminInfoService.getLoginNameByKey(username);
+        if(null==adminInfo){
+            return "用户不存在！";
+        }else if(username == adminInfo.getLoginName()){
+            if(pwd == adminInfo.getPassword()){
+
+            }
+            else{
+                System.out.println();
+            }
+            System.out.println(adminInfo.getLoginName()+"pwd is :"+adminInfo.getPassword());
+        }
+
+        System.out.println(pwd);
         WindMD5 md5 = new WindMD5();
         String md5pwd = md5.getMD5ofStr(thepwd);
         //System.out.println("密码MD5值为："+md5.getMD5ofStr(thepwd));
@@ -58,12 +72,6 @@ public class HomeController {
         return "ok";
     }
 
-//    @RequestMapping(value = {"/", "/view"})
-//    public String view(Map<String, Object> map) {
-//        map.put("name", "SpringBoot");
-//        map.put("date", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-//        return "index";
-//    }
 
     @RequestMapping(value = {"/global"})
     public String vieww(Map<String, Object> model) {
