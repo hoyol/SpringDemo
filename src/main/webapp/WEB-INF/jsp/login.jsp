@@ -25,13 +25,17 @@
         //获取表单value提交后台进行登陆验证，如果验证成功则跳转到首页，如果登陆验证失败则提示失败原因
         var uname = $("#username").val();
         var thepwd = $("#thepwd").val();
-        alert(uname+"--"+thepwd);
+        //alert(uname+"--"+thepwd);
 
         var htmlobj=$.ajax({url:"/dologin?username="+uname+"&thepwd="+thepwd,async:false});
-        alert(htmlobj.responseText);
-
+        //alert(htmlobj.responseText);
+        //如果密码正确，跳转
+        if(htmlobj.responseText=="index"){
+            window.location.assign("index.jsp");
+        }
     }
     </script>
+
 </head>
 
 <body class="gray-bg">
@@ -52,9 +56,7 @@
                 <div class="form-group">
                     <input id="thepwd" type="password" class="form-control" placeholder="密码" required="">
                 </div>
-                <button  onclick="dologin()" type="button" class="btn btn-primary block full-width m-b">登 录</button>
-
-
+                <button id="login_btn" onclick="dologin()" type="button" class="btn btn-primary block full-width m-b">登 录</button>
                 <p class="text-muted text-center"> <a href="login.html#"><small>忘记密码了？</small></a>
                 </p>
 

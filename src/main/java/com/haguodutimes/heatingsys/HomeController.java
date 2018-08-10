@@ -34,27 +34,14 @@ public class HomeController {
 
     @ResponseBody
     @RequestMapping(value = ("/dologin"))
-    public String dologin(@RequestParam String username,@RequestParam String pwd){
-        System.out.println(username);
-        System.out.println(pwd);
+    public String dologin(@RequestParam String username,@RequestParam String thepwd){
+//        System.out.println(username);
+//        System.out.println(thepwd);
         AdminInfo adminInfo = adminInfoService.getLoginNameByKey(username);
-        if(null==adminInfo){
-            return "用户不存在！";
-        }else if(username == adminInfo.getLoginName()){
-            if(pwd == adminInfo.getPassword()){
-
-            }
-            else{
-                System.out.println();
-            }
-            System.out.println(adminInfo.getLoginName()+"pwd is :"+adminInfo.getPassword());
-        }
-
-        System.out.println(pwd);
         WindMD5 md5 = new WindMD5();
         String md5pwd = md5.getMD5ofStr(thepwd);
         //System.out.println("密码MD5值为："+md5.getMD5ofStr(thepwd));
-        AdminInfo adminInfo = adminInfoService.getLoginNameByKey(username);
+        //AdminInfo adminInfo = adminInfoService.getLoginNameByKey(username);
         if(null==adminInfo){
             return "用户不存在！";
         }else if(md5pwd.equals(adminInfo.getPassword())) {
