@@ -326,110 +326,8 @@
         </div>
         <!-- End Panel Sort & Hideheader -->
 
-        <!-- Panel Columns & Select -->
-        <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <h5>列&amp;选择</h5>
-                <div class="ibox-tools">
-                    <a class="collapse-link">
-                        <i class="fa fa-chevron-up"></i>
-                    </a>
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-wrench"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#">选项1</a>
-                        </li>
-                        <li><a href="#">选项2</a>
-                        </li>
-                    </ul>
-                    <a class="close-link">
-                        <i class="fa fa-times"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="ibox-content">
-                <div class="row row-lg">
-                    <!-- Basic Columns -->
-                    <div class="col-sm-6">
-                        <!-- Example Basic Columns -->
-                        <div class="example-wrap">
-                            <h4 class="example-title">基本列</h4>
-                            <div class="example">
-                                <table id="exampleTableColumns" data-mobile-responsive="true">
-                                    <thead>
-                                    <tr>
-                                        <th data-field="state" data-radio="true"></th>
-                                        <th data-field="name" data-switchable="false">名称</th>
-                                        <th data-field="price">价格</th>
-                                        <th data-field="column1">列1</th>
-                                        <th data-field="column2" data-visible="false">列2</th>
-                                        <th data-field="column3" data-switchable="false">列3</th>
-                                        <th data-field="column4" data-visible="false">列4</th>
-                                    </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- End Example Basic Columns -->
-                    </div>
 
-                    <div class="col-sm-6">
-                        <!-- Example Large Columns -->
-                        <div class="example-wrap">
-                            <h4 class="example-title">数据较多的列</h4>
-                            <div class="example">
-                                <table id="exampleTableLargeColumns" data-show-columns="true" data-height="400" data-mobile-responsive="true"></table>
-                            </div>
-                        </div>
-                        <!-- End Example Large Columns -->
-                    </div>
 
-                    <div class="clearfix hidden-xs"></div>
-
-                    <div class="col-sm-6">
-                        <!-- Example Radio Select -->
-                        <div class="example-wrap margin-sm-0">
-                            <h4 class="example-title">单选框</h4>
-                            <div class="example">
-                                <table data-toggle="table" data-url="js/demo/bootstrap_table_test.json" data-height="299" data-click-to-select="true" data-select-item-name="myRadioName" data-mobile-responsive="true">
-                                    <thead>
-                                    <tr>
-                                        <th data-field="state" data-radio="true"></th>
-                                        <th data-field="name">名称</th>
-                                        <th data-field="price">价格</th>
-                                        <th data-field="column1">列1</th>
-                                    </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- End Example Radio Select -->
-                    </div>
-
-                    <div class="col-sm-6">
-                        <!-- Example Checkbox Select -->
-                        <div class="example-wrap">
-                            <h4 class="example-title">复选框</h4>
-                            <div class="example">
-                                <table data-toggle="table" data-url="js/demo/bootstrap_table_test.json" data-height="299" data-click-to-select="true" data-mobile-responsive="true">
-                                    <thead>
-                                    <tr>
-                                        <th data-field="state" data-checkbox="true"></th>
-                                        <th data-field="name">名称</th>
-                                        <th data-field="price">价格</th>
-                                        <th data-field="column1">列1</th>
-                                    </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
-                        <!-- End Example Checkbox Select -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Panel Columns & Select -->
 
         <!-- Panel Other -->
         <div class="ibox float-e-margins">
@@ -568,20 +466,20 @@
     </div>
 
     <!-- 全局js -->
-    <script src="js/jquery.min.js?v=2.1.4"></script>
-    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="../../bootstrap/js/jquery.min.js?v=2.1.4"></script>
+    <script src="../../bootstrap/js/bootstrap.min.js?v=3.3.6"></script>
 
     <!-- 自定义js -->
-    <script src="js/content.js?v=1.0.0"></script>
+    <script src="../../bootstrap/js/content.js?v=1.0.0"></script>
 
 
     <!-- Bootstrap table -->
-    <script src="js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
-    <script src="js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
-    <script src="js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+    <script src="../../bootstrap/js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+    <script src="../../bootstrap/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js"></script>
+    <script src="../../bootstrap/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
 
     <!-- Peity -->
-    <script src="js/demo/bootstrap-table-demo.js"></script>
+    <script src="../../bootstrap/js/demo/bootstrap-table-demo.js"></script>
 
     <script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
     <!--统计代码，可删除-->
